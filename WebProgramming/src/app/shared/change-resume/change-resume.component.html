@@ -1,0 +1,8 @@
+<h2>编辑简介</h2>
+<mat-form-field class="full-width">
+  <input matInput autofocus placeholder="在此处修改简介" [(ngModel)]="resumeChanged">
+</mat-form-field>
+<div mat-dialog-actions>
+  <button mat-button color="primary" [mat-dialog-close]="true">确认</button>
+  <button mat-button (click)="onNoClick()">取消修改</button>
+</div>

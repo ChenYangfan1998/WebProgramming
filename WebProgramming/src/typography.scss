@@ -1,0 +1,107 @@
+/* 这个文件用来对md编译之后的html作样式定义，在material design对排版的建议的基础上对标题进行了缩小处理 */
+
+
+.output { // 对于md编译后的html进行样式定义
+  line-height: 1.8; // 设置段落间行高为字体大小的1.5倍
+  width: 100%;
+  word-break: break-all;
+
+  p, li {
+    margin-bottom: .15em;
+  }
+
+  // #
+  h1 {
+    font-weight: normal;
+    font-size: 30px;
+    margin: 0;
+  }
+
+  // ##
+  h2 {
+    font-weight: normal;
+    font-size: 27px;
+    margin: 0;
+
+  }
+
+  // ###
+  h3 {
+    font-weight: bold;
+    font-size: 23px;
+    margin: 0;
+
+  }
+
+  // ####
+  h4 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+
+  }
+
+  // #####
+  h5 {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+
+  }
+  // ######
+  h6 {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+
+  }
+
+  // -
+  ul, ol {
+    list-style: none;
+    padding-left: 1em;
+    margin-top: .3em;
+    margin-bottom: .8em;
+  }
+  ul > li::before{
+    content: "\02022";
+    display: inline-block;
+    color: #D32F2F;
+    width: 1em;
+    margin-left: -1em;
+  }
+  ul > li > p{
+    display: inline-block;
+  }
+
+  // x.
+  ol {
+    // 一部分定义在无序列表定义中
+    counter-reset: li;
+  }
+  ol > li::before {
+    font-family: Consolas, Monaco, monospace;
+    content: '.' counter(li);
+    color: #D32F2F;
+    display: inline-block;
+    width: 1.5em;
+    margin-left: -1.5em;
+    margin-right: 0.5em;
+    text-align: right;
+    direction: rtl;
+    counter-increment: li;
+  }
+  ol > li > p, ul > li > p{
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100vh;
+    margin: 0 auto 30px auto;
+    display: block;
+    box-shadow: 0 2px 10px 0 #cccccc;
+  }
+}

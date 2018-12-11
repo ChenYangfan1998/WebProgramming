@@ -1,0 +1,121 @@
+.top-box{
+  min-height: 100vh;
+}
+
+mat-toolbar{
+  height: 7vh;
+  background-color: #D32F2F;
+  span{
+    a{
+      text-decoration:none;
+      color: white;
+    }
+  }
+}
+mat-drawer {
+  width: 300px;
+  background-color: #fafafa;
+  padding: 20px 10px;
+}
+
+mat-drawer-container {
+  background-color: white;
+}
+
+mat-toolbar-row {
+  margin-right: -16px;
+  padding-right: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+#box{
+  margin: 0 auto;
+  padding: 0 15px;
+  overflow-x: hidden;
+  min-height: 93vh;
+}
+@media screen and (min-width: 960px) {
+  #box{
+    width: 930px;
+  }
+}
+@media screen and (min-width: 1264px) {
+  #box{
+    width: 1234px;
+  }
+}
+@media screen and (min-width: 1904px) {
+  #box{
+    width: 1244px;
+  }
+}
+
+.ghost-box {
+  position: relative;
+}
+
+.glass {
+  min-height: 100vh;
+  background-color: rgba(0,0,0,.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  h1{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  div {
+    font-size: 14px;
+  }
+}
+
+.ghost {
+  z-index: -1;
+  background: #ccc  no-repeat fixed center center;;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.drawer-button {
+  display: flex;
+  font-weight: bold;
+  box-sizing: border-box;
+  position: relative;
+  padding: 10px 20px;
+  align-items: center;
+  outline: none;
+  div {
+    padding-left: 15px;
+  }
+}
+h3{
+  padding: 10px 10px;
+  margin: 0 0;
+  color: #777;
+}
+
+.red {
+  color: #D32F2F;
+  font-style: italic;
+  font-family: Consolas, Monaco, monospace;
+}
+
+.small {
+  font-size: 14px;
+}
+
+.line {
+  margin: 10px 20px;
+  border-top: 1px #000 solid;
+}

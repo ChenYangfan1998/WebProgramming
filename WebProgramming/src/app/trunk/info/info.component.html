@@ -1,0 +1,47 @@
+<div class="box">
+  <h1>照片墙</h1>
+  <div class="search-area-box">
+    <mat-form-field class="search-area-content" appearance="outline">
+      <mat-label>&nbsp;搜索</mat-label>
+      <input autofocus matInput placeholder="搜索标签或精彩的相关内容！" (input)="changeClass()"
+             #searchInput name="my-search" autocomplete="false" [(ngModel)]="searchContent">
+      <mat-icon matSuffix color="primary">search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div id="info-box" [ngClass]="infoClass">
+    <div class="water-fall">
+      <div class="card-box" *ngFor="let diary of diaries">
+        <app-diary [diary]="diary"></app-diary>
+      </div>
+    </div>
+  </div>
+  <div id="search-result" [ngClass]="searchResultClass">
+    <div id="search-condition-box">
+      <div *ngIf="searchResult">
+        <mat-button-toggle-group name="sort-type" aria-label="sort type" [(ngModel)]="sortType" (change)="changeSearchResult()">
+          <mat-button-toggle value="time">创建时间</mat-button-toggle>
+          <mat-button-toggle value="hot">搜索热度</mat-button-toggle>
+          <mat-button-toggle value="count">标签下内容数</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <span></span>
+      <div *ngIf="searchResult">
+        <mat-button-toggle-group name="show-way" [(ngModel)]="showWay" (change)="changeSearchResult()">
+          <mat-button-toggle value="topDown">从高到低</mat-button-toggle>
+          <mat-button-toggle value="bottomUp">从低到高</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+    <div class="no-result" *ngIf="!searchResult">
+      {{resultMessage}}
+    </div>
+    <div *ngIf="searchResult">
+      <div class="app-tag-box" *ngFor="let tag of searchResult.tags">
+        <app-tag-card [tag]="tag"></app-tag-card>
+      </div>
+      <div *ngFor="let diary of searchResult.diaries" class="search-result-diary">
+        <app-diary [diary]="diary"></app-diary>
+      </div>
+    </div>
+  </div>
+</div>

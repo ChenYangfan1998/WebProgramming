@@ -1,0 +1,10 @@
+<div>
+  <div class="box" mat-ripple (click)="search()">
+    <div id="tag-name">{{tag.tag}}</div>
+    <div id="info">
+      <div>标签下日志数：{{tag.count}}</div>
+      <div>搜索热度：{{tag.hot}}</div>
+      <div>创建时间：{{tag.createdAt.substr(0, 10)}}</div>
+    </div>
+  </div>
+</div>

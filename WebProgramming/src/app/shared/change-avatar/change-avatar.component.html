@@ -1,0 +1,7 @@
+<div class="card">
+  <div class="avatar">
+    <input #input type="file" id="file-btn" accept="image/*" style="display:none" (change)="addFile(input)">
+    <img #avatar [src]="avatarSrc" (error)="avatar.src='../../../assets/default_avatar'">
+  </div>
+  <button mat-flat-button color="primary" id="changeButton" (click)="input.click()">更改头像</button>
+</div>

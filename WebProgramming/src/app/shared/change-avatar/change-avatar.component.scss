@@ -1,0 +1,17 @@
+.avatar{
+  img {
+    display: block;
+    margin: 20px auto;
+    max-width: 250px;
+    min-width: 250px;
+    max-height: 250px;
+    min-height: 250px;
+    border-radius: 50%;
+  }
+}
+
+#changeButton {
+  display: block;
+  margin: 40px auto 20px auto;
+  width: 250px;
+}

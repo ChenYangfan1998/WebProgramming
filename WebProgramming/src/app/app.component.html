@@ -1,0 +1,75 @@
+<div (window:resize)="onResize()" class="top-box">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <button mat-icon-button color="warn" (click)="drawer.toggle()">
+        <mat-icon aria-label="菜单">menu</mat-icon>
+      </button>
+      <span><a routerLink="/trunk">1920x1080</a></span>
+      <span class="spacer"></span>
+      <span *ngIf="!isLogin">
+        <button mat-button color="warn" routerLink="/trunk/login">登录</button>
+        <button mat-button color="warn" routerLink="/trunk/sign-up">注册</button>
+      </span>
+      <span *ngIf="isLogin">
+        <button mat-button color="warn" routerLink="/personal-info">
+          Hi, {{username}}
+        </button>
+        <button mat-button color="warn" (click)="logout()">
+          登出
+        </button>
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-drawer-container>
+    <mat-drawer #drawer [mode]="mode">
+      <h3>快速链接</h3>
+      <div class="drawer-button" mat-ripple routerLink="/trunk">
+        <mat-icon>home</mat-icon>
+        <div>主页</div>
+      </div>
+      <div class="drawer-button" mat-ripple routerLink="/trunk/home">
+        <mat-icon>explore</mat-icon>
+        <div>导航页</div>
+      </div>
+      <div class="line"></div>
+      <h3>标签热搜榜</h3>
+      <div class="drawer-button" mat-ripple *ngFor="let tag of mostSearched; index as i" (click)="search(tag.tag)">
+        <span class="red">{{i+1}}.&nbsp;&nbsp;</span>
+        {{tag.tag}}
+        <span class="spacer"></span>
+        <span class="red small">{{tag.hot}}</span>
+      </div>
+      <div class="line"></div>
+      <h3>标签流行榜</h3>
+      <div class="drawer-button" mat-ripple *ngFor="let tag of mostContent; index as i" (click)="search(tag.tag)">
+        <span class="red">{{i+1}}.&nbsp;&nbsp;</span>
+        {{tag.tag}}
+        <span class="spacer"></span>
+        <span class="red small">{{tag.count}}</span>
+      </div>
+      <div class="drawer-button" mat-ripple (click)="search('__getAll')">
+        查看全部标签
+      </div>
+    </mat-drawer>
+
+    <div>
+      <div id="box">
+        <router-outlet #outlet="outlet"></router-outlet>
+      </div>
+    </div>
+    <div class="ghost-box"></div>
+    <div class="ghost" id="ghost"></div>
+    <div class="glass">
+      <h1>1920 x 1080</h1>
+      <div>
+        <div>&copy; 2018 陈扬帆 —— 2018年 web 编程作业</div>
+        <br>
+        <br>
+        <div>{{copyright}}</div>
+        <div>图片来源：微软必应每日壁纸API</div>
+      </div>
+    </div>
+  </mat-drawer-container>
+</div>
+

@@ -1,0 +1,27 @@
+#box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+#left {
+  text-align: center;
+  h1 {
+    font-size: 32px;
+    margin: 10px;
+  }
+}
+
+#right {
+  #index-title{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 10px 16px;
+  }
+  margin: 0 20px;
+  padding: 0 20px;
+  border-left: 2px black solid;
+}

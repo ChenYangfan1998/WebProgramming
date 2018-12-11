@@ -1,0 +1,21 @@
+<div id="box">
+  <div id="left">
+    <h1>登录</h1>
+  </div>
+  <div id="right">
+    <form class="example-form">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="账户名" [autofocus]="true" name="loginName" [(ngModel)]="loginName">
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="密码" name="password" [(ngModel)]="password">
+      </mat-form-field>
+    </form>
+    <div class="button-row">
+      <button mat-flat-button (click)="login()">登录</button>
+      <button mat-button routerLink="../sign-up">注册</button>
+    </div>
+    <div class="error-message">{{errorMessage}}</div>
+  </div>
+</div>

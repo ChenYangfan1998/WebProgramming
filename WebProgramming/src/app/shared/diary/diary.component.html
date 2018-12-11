@@ -1,0 +1,22 @@
+<mat-card *ngIf="diary">
+  <mat-card-content>
+    <p>
+      {{diary.diary.content}}
+    </p>
+  </mat-card-content>
+  <img mat-card-image [src]="baseUrl + diary.diary.src" alt="Photo of a diary">
+  <mat-card-header>
+    <img #userAvatar mat-card-avatar class="example-header-image" [src]="baseUrl + 'upload/' + diary.diary.username"
+         (error)="userAvatar.src='../../../assets/default_avatar'">
+    <div>{{diary.diary.username}}</div>
+    <span class="spacer"></span>
+    <span id="create-time">{{diary.diary.createdAt.substr(0, 10)}}</span>
+    <!--<button class="like-button" mat-icon-button color="basic">-->
+      <!--<mat-icon>thumb_up_alt</mat-icon>-->
+    <!--</button>-->
+  </mat-card-header>
+  <div class="tags">
+    <span class="chip" *ngFor="let tag of diary.tags" (click)="search(tag)">{{tag}}</span>
+    <!--<span class="spacer"></span>-->
+  </div>
+</mat-card>

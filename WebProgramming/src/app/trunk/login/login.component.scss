@@ -1,0 +1,37 @@
+#box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  min-height: 93vh;
+}
+
+#left {
+  margin: 0 20px;
+  h1 {
+    font-size: 32px;
+  }
+}
+
+#right {
+  margin: 0 20px;
+  padding: 0 40px;
+  border-left: 2px black solid;
+}
+
+.full-width{
+  display: block;
+}
+
+.button-row{
+  button{
+    margin-right: 8px;
+  }
+}
+
+.error-message {
+  margin-top: 5px;
+  font-weight: bold;
+  color: #D32F2F;
+}

@@ -1,0 +1,39 @@
+.box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  align-items: center;
+  margin: 0 10px;
+  -webkit-box-shadow:  0 3px 15px #ccc;
+  -moz-box-shadow:  0 3px 15px #ccc;
+  box-shadow:  0 3px 15px #ccc;
+  transition: all .3s ease-out;
+  background-color: #eeeeee;
+
+  position: relative;
+
+  &:hover {
+    background-color: #D32F2F;
+    color: white;
+  }
+}
+
+#tag-name {
+  padding: 20px 30px;
+  font-weight: bold;
+  font-size: 34px;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+#info{
+  padding: 0 10px 0 30px;
+  margin: 20px 0 20px 10px;
+  border-left: 1px #ccc solid;
+  flex: 1 1 auto;
+  div {
+    margin: 3px 0;
+    font-size: 14px;
+  }
+}
+

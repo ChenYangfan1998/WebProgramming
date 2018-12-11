@@ -1,0 +1,36 @@
+<!-- 这是一个absolute定位的背景 -->
+<div class="red-background"></div>
+
+<div class="red-content" *ngIf="user">
+  <div class="user-info-box">
+    <div class="avatar">
+      <img #avatar (click)="changeAvatar()"
+           [src]="avatarSrc" (error)="avatar.src='../../../assets/default_avatar'">
+    </div>
+    <div class="grow-row">
+      <div class="resume" *ngIf="user.resume">
+        {{user.resume}}
+        <!--<button mat-flat-button color="basic" (click)="changeResume()">修改简介</button>-->
+      </div>
+      <div class="resume" *ngIf="!user.resume">
+        这位用户很懒还没有留下简介
+        <!--<button mat-flat-button color="basic" (click)="changeResume()">添加简介</button>-->
+      </div>
+    </div>
+  </div>
+  <div class="button-row">
+    <button mat-flat-button color="basic" (click)="newDiary()">上传日志</button>
+    <button mat-flat-button color="basic" routerLink="/photo-shop/board">编辑图片</button>
+    <!--<button mat-flat-button color="basic" routerLink="./change">修改个人信息</button>-->
+  </div>
+</div>
+<div>
+  <b>我的日志列表</b>
+  <div>
+    <div class="water-fall">
+      <div class="card-box" *ngFor="let diary of diaries">
+        <app-diary [diary]="diary"></app-diary>
+      </div>
+    </div>
+  </div>
+</div>

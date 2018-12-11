@@ -1,0 +1,99 @@
+#box{
+  margin: 30px auto;
+  width: 100%;
+}
+
+#flex-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+}
+
+#canvas-box{
+  margin: 10px 10px;
+  flex: auto;
+  box-shadow: #eeeeee 0 3px 15px 0;
+  width: 60%;
+}
+
+canvas{
+  width: 100%;
+}
+
+#actions{
+  flex: auto;
+  width: 400px;
+  max-width: 400px;
+  margin: 10px 10px 20px 10px;
+}
+@media screen and (max-width: 1264px) {
+  #actions{
+    width: auto;
+    max-width: 10000px;
+  }
+}
+
+.properties{
+  margin: 15px 10px 0 10px;
+}
+
+#actions b, .properties b{
+  display: block;
+  padding-bottom: 10px;
+  border-bottom: #D32F2F 2px solid;
+  margin-bottom: 10px;
+}
+
+.line-top{
+  font-weight: bold;
+  margin-top: 5px;
+  //padding-top: 10px;
+  //border-top: #bbbbbb 2px solid;
+}
+
+.button-bar{
+  margin: 10px 0;
+}
+
+.hit-button{
+  background-color: #D32F2F;
+  color: white;
+}
+
+.photo-unit-box{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photo-unit{
+  min-width: 10px;
+  background-color: #fafafa;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  box-shadow: #dddddd 0 0 15px 0;
+  margin-right: 20px;
+  img {
+    display: block;
+  }
+}
+
+.grey-text{
+  color: #aaaaaa;
+}
+.green-text{
+  color: darkgreen;
+}
+
+#properties-setting{
+  .mr-2{
+    margin-right: 10px;
+  }
+}
+
+.func-button {
+  button{
+    width: 100px;
+    height: 100%;
+  }
+}

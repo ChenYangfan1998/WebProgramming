@@ -1,0 +1,100 @@
+<div id="box" (window:resize)="onResize()">
+  <div id="flex-box">
+    <div id="canvas-box">
+      <canvas height="2000" width="3200" #canvas (mousedown)="onMouseDown($event)"></canvas>
+    </div>
+    <div id="actions">
+      <b>可执行操作</b>
+      <div>
+        <input #input type="file" id="file-btn" multiple="multiple" accept="image/*" style="display:none" (change)="addFile(input)">
+        <button mat-flat-button color="primary" (click)="openFileSelector()">导入图片</button>
+        <strong class="grey-text">
+          （原先上传素材到服务器的功能移除）
+        </strong>
+      </div>
+
+      <div class="line-top">
+        <div>为对应比例的图片添加外壳或阴影</div>
+        <div class="button-bar">
+          <div *ngIf="!selectedImage" class="grey-text">（请先选取图片）</div>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(ngModel)]="selectedImage.outside"
+                                   *ngIf="selectedImage" #outsideValue="matButtonToggleGroup" (change)="render()">
+            <mat-button-toggle value="mac">Mac</mat-button-toggle>
+            <mat-button-toggle value="iPhone">iPhone</mat-button-toggle>
+            <mat-button-toggle value="shadow">阴影</mat-button-toggle>
+            <mat-button-toggle value="">无</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+      </div>
+      <div class="line-top">
+        <div>图片属性设置</div>
+        <div class="button-bar">
+          <div *ngIf="!selectedImage" class="grey-text">（请先选取图片）</div>
+          <div id="properties-setting" *ngIf="selectedImage" (change)="render()">
+            <div>
+              <mat-form-field>
+                <input type="number" matInput placeholder="z轴次序" [(ngModel)]="selectedImage.zIndex">
+              </mat-form-field>
+              <br>
+              <mat-form-field  class="mr-2">
+                <input type="number" matInput placeholder="宽度" [(ngModel)]="selectedImage.width">
+              </mat-form-field>
+              <mat-form-field>
+                <input type="number" matInput placeholder="高度" [(ngModel)]="selectedImage.height">
+              </mat-form-field>
+              <br>
+              <mat-form-field  class="mr-2">
+                <input type="number" matInput placeholder="横向偏移" [(ngModel)]="selectedImage.x">
+              </mat-form-field>
+              <mat-form-field>
+                <input type="number" matInput placeholder="纵向偏移" [(ngModel)]="selectedImage.y">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="line-top">
+        <div>保存图片</div>
+        <div class="grey-text">（在画布区域右键即可保存图片）</div>
+      </div>
+      <div class="line-top">
+        <br>
+        <button mat-flat-button color="primary" (click)="openPublishDialog()">
+          马上发布！
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="properties">
+    <b>添加的素材列表（点击即可在上方编辑相关属性）</b>
+    <strong *ngIf="!imageList.length" class="grey-text">(无图片，点击导入图片按钮以导入图片)</strong>
+    <div class="photo-unit-box">
+      <div class="photo-unit" *ngFor="let img of imageList; index as i" (click)="onSelect(i)">
+        <img [src]="img.element.src" height="140">
+        <div class="func-button">
+          <!--<button *ngIf="fileList[i]" mat-button (click)="upload(i)">上传</button>-->
+          <!--<br>-->
+          <button mat-button color="primary" (click)="delete(i)">删除</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="properties">-->
+    <!--<b>已上传的文件（点击即可添加到画布）</b>-->
+    <!--<strong *ngIf="isUploading" class="green-text">{{uploadingNumber}}张图片正在上传中...</strong>-->
+    <!--<strong *ngIf="!uploadedImageList.length" class="grey-text">(目前没有已上传的图片)</strong>-->
+    <!--<div class="diary-unit-box">-->
+      <!--<div class="diary-unit" *ngFor="let img of uploadedImageList; index as i" (click)="addUploaded(i)">-->
+        <!--<img [src]="img" height="140">-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+  <div class="properties">
+    <b>参考素材列表（点击即可添加到画布）</b>
+    <div class="photo-unit-box">
+      <div class="photo-unit" *ngFor="let img of preparedImageList; index as i" (click)="addPrepared(i)">
+        <img [src]="img" height="140">
+      </div>
+    </div>
+  </div>
+</div>
